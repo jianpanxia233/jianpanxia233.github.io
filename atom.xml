@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-24T11:26:12.345Z</updated>
+  <updated>2020-07-28T08:14:45.959Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,24 @@
     <link href="http://yoursite.com/2020/07/24/article-title/"/>
     <id>http://yoursite.com/2020/07/24/article-title/</id>
     <published>2020-07-24T11:26:12.000Z</published>
-    <updated>2020-07-24T11:26:12.345Z</updated>
+    <updated>2020-07-28T08:14:45.959Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这里我要记录一下es6中promise和async，await的用法"><a href="#这里我要记录一下es6中promise和async，await的用法" class="headerlink" title="这里我要记录一下es6中promise和async，await的用法"></a>这里我要记录一下es6中promise和async，await的用法</h2><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;这里我要记录一下es6中promise和async，await的用法&quot;&gt;&lt;a href=&quot;#这里我要记录一下es6中promise和async，await的用法&quot; class=&quot;headerlink&quot; title=&quot;这里我要记录一下es6中promise和asyn
+      
     
     </summary>
     
     
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="异步" scheme="http://yoursite.com/tags/%E5%BC%82%E6%AD%A5/"/>
     
   </entry>
   
