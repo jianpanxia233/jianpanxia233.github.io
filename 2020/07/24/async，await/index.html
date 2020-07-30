@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="异步," />
 
 
 
@@ -81,13 +81,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="Es6中promise和async，await的用法async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。 宏任务，微任务和事件循环宏任务和微任务通过例题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="async和await的理解">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/async%EF%BC%8Cawait/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
-<meta property="article:published_time" content="2020-07-27T09:07:39.000Z">
-<meta property="article:modified_time" content="2020-07-27T11:04:59.387Z">
+<meta property="og:description" content="Es6中promise和async，await的用法async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。 宏任务，微任务和事件循环宏任务和微任务通过例题">
+<meta property="article:published_time" content="2020-07-24T11:26:12.000Z">
+<meta property="article:modified_time" content="2020-07-30T05:37:12.893Z">
 <meta property="article:author" content="Janpanxia">
+<meta property="article:tag" content="异步">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/24/async，await/"/>
 
 
 
 
 
-  <title>tags | Jianpanxia-Blog</title>
+  <title>async和await的理解 | Jianpanxia-Blog</title>
   
 
 
@@ -239,40 +242,171 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/async%EF%BC%8Cawait/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Janpanxia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jianpanxia-Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 3 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 30px; color: #111">对象</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 12px; color: #ccc">异步</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 12px; color: #ccc">循环</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">async和await的理解</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-24T19:26:12+08:00">
+                2020-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="Es6中promise和async，await的用法"><a href="#Es6中promise和async，await的用法" class="headerlink" title="Es6中promise和async，await的用法"></a>Es6中promise和async，await的用法</h3><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>
+<h3 id="宏任务，微任务和事件循环"><a href="#宏任务，微任务和事件循环" class="headerlink" title="宏任务，微任务和事件循环"></a>宏任务，微任务和事件循环</h3><p>宏任务和微任务通过例题来加深理解，微任务如Promise，宏任务包括整体代码script，setTimeout,setInterval。<br> <a href="https://zhuanlan.zhihu.com/p/97138729" target="_blank" rel="noopener">例题</a><br>我对于事件循环的理解：<br>Event Loop是一个程序结构，用于等待和发送消息和事件。当主线程空闲时，让Event Loop线程通知相应的I/O程序，接着运行。<br>1.执行中遇到函数调用会压入执行栈。主线程在遇到Ajax或setTimeout这种异步操作时会交给浏览器的WebAPIs,然后继续执行后边的代码，知道最后执行栈为空。<br>2.浏览器会在不确定的时间将完成的任务返回，排到相应的任务队列后。<br>3.执行栈为空后，主线程会到任务队列中去取任务，这些任务告诉下一步执行哪些回调函数。任务队列具有优先级，按照优先级决定访问的先后顺序。而优先级在不同的环境中会有所不同。<br>4.每访问一个队列，执行栈会执行完这个任务队列的所有的代码，然后再取下一个任务队列需要执行的代码。<br>就这样循环执行，直到全为空，称为事件循环。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag"><i class="fa fa-tag"></i> 异步</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/24/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/30/JS-Object/" rel="prev" title="JS-对象方法总结">
+                JS-对象方法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -305,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -377,6 +520,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Es6中promise和async，await的用法"><span class="nav-number">1.</span> <span class="nav-text">Es6中promise和async，await的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务，微任务和事件循环"><span class="nav-number">2.</span> <span class="nav-text">宏任务，微任务和事件循环</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

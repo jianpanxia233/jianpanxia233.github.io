@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="对象," />
 
 
 
@@ -81,11 +81,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jianpanxia-Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。 123456789101112131415161718192021222324252627282930">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-对象方法总结">
+<meta property="og:url" content="http://yoursite.com/2020/07/30/JS-Object/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
+<meta property="og:description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。 123456789101112131415161718192021222324252627282930">
+<meta property="article:published_time" content="2020-07-30T05:41:27.000Z">
+<meta property="article:modified_time" content="2020-07-30T06:33:46.825Z">
 <meta property="article:author" content="Janpanxia">
+<meta property="article:tag" content="对象">
 <meta name="twitter:card" content="summary">
 
 
@@ -116,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/30/JS-Object/"/>
 
 
 
 
 
-  <title>Jianpanxia-Blog</title>
+  <title>JS-对象方法总结 | Jianpanxia-Blog</title>
   
 
 
@@ -141,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,166 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Janpanxia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jianpanxia-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/" itemprop="url">JS中map,filter,some,every,forEach,for in,for of用法总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-30T14:36:24+08:00">
-                2020-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>有返回值，返回一个新的数组，每个元素为调用func的结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = list.map((d,i) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> d * 2;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br><span class="line">//d表示值，i为索引</span><br></pre></td></tr></table></figure>
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>有返回值，返回一个符合func条件的元素数组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const words = [<span class="string">'spray'</span>, <span class="string">'limit'</span>, <span class="string">'elite'</span>, <span class="string">'exuberant'</span>, <span class="string">'destruction'</span>, <span class="string">'present'</span>]</span><br><span class="line"></span><br><span class="line">const result = words.filter(word =&gt; word.length &gt; 6);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line">//expected output: Array [<span class="string">"exuberant"</span>, <span class="string">"destruction"</span>, <span class="string">"parent"</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>返回一个Boolean，判断是否有元素符合func条件，如果有一个元素符合func条件，则循环停止。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line">list.some((d, i)=&gt; &#123;</span><br><span class="line">    console.log(d,i);</span><br><span class="line">    <span class="built_in">return</span> d&gt;3;</span><br><span class="line">&#125;);</span><br><span class="line">//<span class="built_in">print</span>: 1,0 2,1 3,2 4,3</span><br><span class="line">//<span class="built_in">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2><p>返回一个boolean,判断每个元素是否符合func条件，有一个元素不满足func条件，则循环终止。返回false。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line">list.every((d, i)=&gt; &#123;</span><br><span class="line">    console.log(d,i);</span><br><span class="line">    <span class="built_in">return</span> d&lt;3;</span><br><span class="line">&#125;);</span><br><span class="line">//<span class="built_in">print</span>: 1,0 2,1 3,2</span><br><span class="line">//<span class="built_in">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>没有返回值，只针对每个元素调用func。<br>优点：代码简洁。<br>缺点：无法使用break,return等终止循环。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = [];</span><br><span class="line">list.forEach((d, i)=&gt; &#123;</span><br><span class="line">    other.push(d*2);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for-in循环实际是为循环”enumerable”对象设计的，for in也可以循环数组，但是不推荐这样使用，for-in是用来循环带有字符串key的对象的方法。<br>缺点：只能获得对象的键名，不能直接获取键值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;a:1,b:2,c:3&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    console.log(<span class="string">"obj."</span> + prop + <span class="string">" = "</span> + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line">// <span class="built_in">print</span>: <span class="string">"obj.a = 1"</span> <span class="string">"obj.b = 2"</span> <span class="string">"obj.c = 3"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h2><p>for of为ES6提供，具有iterator接口，在可迭代对象(Array,Map,Set,String,Dom集合)上创建一个迭代循环。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -424,9 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/30/JS-Object/" itemprop="url">JS-对象方法总结</a></h1>
+          <h1 class="post-title" itemprop="name headline">JS-对象方法总结</h1>
         
 
         <div class="post-meta">
@@ -498,9 +343,7 @@
       
 
       
-        
-          
-            <h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><h3 id="Object-assign-target-source1-source2-…"><a href="#Object-assign-target-source1-source2-…" class="headerlink" title="Object.assign(target,source1,source2,…)"></a>Object.assign(target,source1,source2,…)</h3><p>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。<br>Objects.assign方法实行的是浅拷贝，而不是深拷贝。</p>
+        <h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><h3 id="Object-assign-target-source1-source2-…"><a href="#Object-assign-target-source1-source2-…" class="headerlink" title="Object.assign(target,source1,source2,…)"></a>Object.assign(target,source1,source2,…)</h3><p>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。<br>Objects.assign方法实行的是浅拷贝，而不是深拷贝。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const target = &#123;</span><br><span class="line">    x: 0,</span><br><span class="line">    y: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const <span class="built_in">source</span> = &#123;</span><br><span class="line">    x: 1,</span><br><span class="line">    z: 2,</span><br><span class="line">    fn: &#123;</span><br><span class="line">        number : 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(target,<span class="built_in">source</span>);</span><br><span class="line">// target &#123;x: 1, y: 1, z: 2, fn : &#123;number : 1&#125;&#125;  //同名属性会被覆盖</span><br><span class="line">// <span class="built_in">source</span> &#123;x :1, z: 2, fn : &#123;number : 1&#125;&#125;</span><br><span class="line">target.fn.number = 2; //拷贝为对象引用</span><br><span class="line">// <span class="built_in">source</span> &#123;x: 1,z: 2,fn : &#123;number :2&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;</span><br><span class="line">    this.name = 1</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.country = <span class="string">'china'</span>;</span><br><span class="line"><span class="built_in">let</span> student = new Person();</span><br><span class="line">student.age = 29;</span><br><span class="line">const young = &#123;intrest : <span class="string">'sport'</span>&#125;;</span><br><span class="line">Object.assign(young,student);</span><br><span class="line">//young &#123;intrest : <span class="string">'sport'</span> , name: 1, age: 29&#125;</span><br><span class="line">//只能拷贝自身的属性，不能拷贝prototype</span><br><span class="line"></span><br><span class="line">Object.assign([1,2,3],[4,5]) //把数组当作对象来处理</span><br><span class="line">// [4, 5, 3]</span><br></pre></td></tr></table></figure>
 <h3 id="Object-create-prototype-propertieObject"><a href="#Object-create-prototype-propertieObject" class="headerlink" title="Object.create(prototype, [propertieObject])"></a>Object.create(prototype, [propertieObject])</h3><p>使用指定的原型对象及其属性去创建一个新的对象</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  printIntroduction: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    console.log(`My name is <span class="variable">$&#123;this.name&#125;</span>. Am I human? <span class="variable">$&#123;this.isHuman&#125;</span>`);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const me = Object.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">'Matthew'</span>; // <span class="string">"name"</span> is a property <span class="built_in">set</span> on <span class="string">"me"</span>, but not on <span class="string">"person"</span></span><br><span class="line">me.isHuman = <span class="literal">true</span>; // inherited properties can be overwritten</span><br><span class="line"></span><br><span class="line">me.printIntroduction();</span><br><span class="line">// expected output: <span class="string">"My name is Matthew. Am I human? true"</span></span><br></pre></td></tr></table></figure>
@@ -512,8 +355,6 @@
 <p>Object.values(obj) 返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用for…in循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; foo: <span class="string">'bar'</span>, baz: 42 &#125;;</span><br><span class="line">console.log(Object.values(obj)); // [<span class="string">'bar'</span>, 42]</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -528,289 +369,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/async%EF%BC%8Cawait/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Janpanxia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jianpanxia-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/24/async%EF%BC%8Cawait/" itemprop="url">async和await的理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-24T19:26:12+08:00">
-                2020-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag"><i class="fa fa-tag"></i> 对象</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Es6中promise和async，await的用法"><a href="#Es6中promise和async，await的用法" class="headerlink" title="Es6中promise和async，await的用法"></a>Es6中promise和async，await的用法</h3><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>
-<h3 id="宏任务，微任务和事件循环"><a href="#宏任务，微任务和事件循环" class="headerlink" title="宏任务，微任务和事件循环"></a>宏任务，微任务和事件循环</h3><p>宏任务和微任务通过例题来加深理解，微任务如Promise，宏任务包括整体代码script，setTimeout,setInterval。<br> <a href="https://zhuanlan.zhihu.com/p/97138729" target="_blank" rel="noopener">例题</a><br>我对于事件循环的理解：<br>Event Loop是一个程序结构，用于等待和发送消息和事件。当主线程空闲时，让Event Loop线程通知相应的I/O程序，接着运行。<br>1.执行中遇到函数调用会压入执行栈。主线程在遇到Ajax或setTimeout这种异步操作时会交给浏览器的WebAPIs,然后继续执行后边的代码，知道最后执行栈为空。<br>2.浏览器会在不确定的时间将完成的任务返回，排到相应的任务队列后。<br>3.执行栈为空后，主线程会到任务队列中去取任务，这些任务告诉下一步执行哪些回调函数。任务队列具有优先级，按照优先级决定访问的先后顺序。而优先级在不同的环境中会有所不同。<br>4.每访问一个队列，执行栈会执行完这个任务队列的所有的代码，然后再取下一个任务队列需要执行的代码。<br>就这样循环执行，直到全为空，称为事件循环。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Janpanxia">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jianpanxia-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-24T19:18:17+08:00">
-                2020-07-24
-              </time>
+              <a href="/2020/07/24/async%EF%BC%8Cawait/" rel="next" title="async和await的理解">
+                <i class="fa fa-chevron-left"></i> async和await的理解
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/" rel="prev" title="JS中map,filter,some,every,forEach,for in,for of用法总结">
+                JS中map,filter,some,every,forEach,for in,for of用法总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -820,10 +412,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -831,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -851,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -923,6 +529,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object方法"><span class="nav-number">1.</span> <span class="nav-text">Object方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-assign-target-source1-source2-…"><span class="nav-number">1.1.</span> <span class="nav-text">Object.assign(target,source1,source2,…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-create-prototype-propertieObject"><span class="nav-number">1.2.</span> <span class="nav-text">Object.create(prototype, [propertieObject])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-entries"><span class="nav-number">1.3.</span> <span class="nav-text">Object.entries()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-keys-obj-和Object-values-obj"><span class="nav-number">1.4.</span> <span class="nav-text">Object.keys(obj)和Object.values(obj)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1063,6 +685,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
