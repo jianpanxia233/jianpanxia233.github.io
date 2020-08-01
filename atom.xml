@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-30T07:19:26.448Z</updated>
+  <updated>2020-08-01T08:36:29.535Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实习项目（来吧，展示）</title>
+    <link href="http://yoursite.com/2020/08/01/lianpuproject/"/>
+    <id>http://yoursite.com/2020/08/01/lianpuproject/</id>
+    <published>2020-08-01T08:12:23.000Z</published>
+    <updated>2020-08-01T08:36:29.535Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="主页显示"><a href="#主页显示" class="headerlink" title="主页显示"></a>主页显示</h2><p>搜索功能：包括tab的切换、搜索项的关键字匹配<br><img src="/2020/08/01/lianpuproject/homepage.png" alt="homepage"></p><h2 id="下拉框的展示"><a href="#下拉框的展示" class="headerlink" title="下拉框的展示"></a>下拉框的展示</h2><p>通过组件嵌套以及组件传参来实现，icon图通过循环过程匹配class展示<br><img src="/2020/08/01/lianpuproject/dropdown.png" alt="dropdown"></p><h2 id="标签详情页"><a href="#标签详情页" class="headerlink" title="标签详情页"></a>标签详情页</h2><p>左侧会记录点击过的标签，关闭后会自动展示下一个；右侧通过echarts图表绘制，通过Element-ui时间选择器来选择时间<br><img src="/2020/08/01/lianpuproject/tagdetail.png" alt="tagdetail"></p><h2 id="后台管理面板"><a href="#后台管理面板" class="headerlink" title="后台管理面板"></a>后台管理面板</h2><p>展示总体数据概览<br><img src="/2020/08/01/lianpuproject/dashbord.png" alt="dashbord"></p><h2 id="标签信息管理页"><a href="#标签信息管理页" class="headerlink" title="标签信息管理页"></a>标签信息管理页</h2><p>主要应用Element-ui组件，作用：分页查询和点击设备类型跳转相应详情页面<br><img src="/2020/08/01/lianpuproject/tagcommand.png" alt="tagcommand"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;主页显示&quot;&gt;&lt;a href=&quot;#主页显示&quot; class=&quot;headerlink&quot; title=&quot;主页显示&quot;&gt;&lt;/a&gt;主页显示&lt;/h2&gt;&lt;p&gt;搜索功能：包括tab的切换、搜索项的关键字匹配&lt;br&gt;&lt;img src=&quot;/2020/08/01/lianpuproject
+      
+    
+    </summary>
+    
+    
+    
+      <category term="项目" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>JS中map,filter,some,every,forEach,for in,for of用法总结</title>
