@@ -81,14 +81,14 @@
 
 
 
-<meta name="description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引 filter有返回值，返回一个符合func条">
+<meta name="description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中map,filter,some,every,forEach,for in,for of用法总结">
 <meta property="og:url" content="http://yoursite.com/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
-<meta property="og:description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引 filter有返回值，返回一个符合func条">
+<meta property="og:description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引">
 <meta property="article:published_time" content="2020-07-30T06:36:24.000Z">
-<meta property="article:modified_time" content="2020-07-30T07:19:26.448Z">
+<meta property="article:modified_time" content="2020-08-14T06:19:10.575Z">
 <meta property="article:author" content="Janpanxia">
 <meta property="article:tag" content="对象">
 <meta property="article:tag" content="循环">
@@ -351,6 +351,7 @@
       
         <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>有返回值，返回一个新的数组，每个元素为调用func的结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = list.map((d,i) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> d * 2;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br><span class="line">//d表示值，i为索引</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>有返回值，返回一个符合func条件的元素数组</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const words = [<span class="string">'spray'</span>, <span class="string">'limit'</span>, <span class="string">'elite'</span>, <span class="string">'exuberant'</span>, <span class="string">'destruction'</span>, <span class="string">'present'</span>]</span><br><span class="line"></span><br><span class="line">const result = words.filter(word =&gt; word.length &gt; 6);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line">//expected output: Array [<span class="string">"exuberant"</span>, <span class="string">"destruction"</span>, <span class="string">"parent"</span>]</span><br></pre></td></tr></table></figure>
 
@@ -490,7 +491,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -512,7 +513,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

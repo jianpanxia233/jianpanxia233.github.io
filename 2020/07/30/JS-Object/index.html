@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="对象," />
+  <meta name="keywords" content="对象,拷贝," />
 
 
 
@@ -81,16 +81,17 @@
 
 
 
-<meta name="description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。 123456789101112131415161718192021222324252627282930">
+<meta name="description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS-对象方法总结">
 <meta property="og:url" content="http://yoursite.com/2020/07/30/JS-Object/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
-<meta property="og:description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。 123456789101112131415161718192021222324252627282930">
+<meta property="og:description" content="Object方法Object.assign(target,source1,source2,…)该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。Objects.assign方法实行的是浅拷贝，而不是深拷贝。">
 <meta property="article:published_time" content="2020-07-30T05:41:27.000Z">
-<meta property="article:modified_time" content="2020-07-30T06:33:46.825Z">
+<meta property="article:modified_time" content="2020-08-14T06:21:17.806Z">
 <meta property="article:author" content="Janpanxia">
 <meta property="article:tag" content="对象">
+<meta property="article:tag" content="拷贝">
 <meta name="twitter:card" content="summary">
 
 
@@ -349,6 +350,7 @@
 
       
         <h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><h3 id="Object-assign-target-source1-source2-…"><a href="#Object-assign-target-source1-source2-…" class="headerlink" title="Object.assign(target,source1,source2,…)"></a>Object.assign(target,source1,source2,…)</h3><p>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。<br>Objects.assign方法实行的是浅拷贝，而不是深拷贝。</p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const target = &#123;</span><br><span class="line">    x: 0,</span><br><span class="line">    y: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const <span class="built_in">source</span> = &#123;</span><br><span class="line">    x: 1,</span><br><span class="line">    z: 2,</span><br><span class="line">    fn: &#123;</span><br><span class="line">        number : 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(target,<span class="built_in">source</span>);</span><br><span class="line">// target &#123;x: 1, y: 1, z: 2, fn : &#123;number : 1&#125;&#125;  //同名属性会被覆盖</span><br><span class="line">// <span class="built_in">source</span> &#123;x :1, z: 2, fn : &#123;number : 1&#125;&#125;</span><br><span class="line">target.fn.number = 2; //拷贝为对象引用</span><br><span class="line">// <span class="built_in">source</span> &#123;x: 1,z: 2,fn : &#123;number :2&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;</span><br><span class="line">    this.name = 1</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.country = <span class="string">'china'</span>;</span><br><span class="line"><span class="built_in">let</span> student = new Person();</span><br><span class="line">student.age = 29;</span><br><span class="line">const young = &#123;intrest : <span class="string">'sport'</span>&#125;;</span><br><span class="line">Object.assign(young,student);</span><br><span class="line">//young &#123;intrest : <span class="string">'sport'</span> , name: 1, age: 29&#125;</span><br><span class="line">//只能拷贝自身的属性，不能拷贝prototype</span><br><span class="line"></span><br><span class="line">Object.assign([1,2,3],[4,5]) //把数组当作对象来处理</span><br><span class="line">// [4, 5, 3]</span><br></pre></td></tr></table></figure>
 <h3 id="Object-create-prototype-propertieObject"><a href="#Object-create-prototype-propertieObject" class="headerlink" title="Object.create(prototype, [propertieObject])"></a>Object.create(prototype, [propertieObject])</h3><p>使用指定的原型对象及其属性去创建一个新的对象</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  printIntroduction: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    console.log(`My name is <span class="variable">$&#123;this.name&#125;</span>. Am I human? <span class="variable">$&#123;this.isHuman&#125;</span>`);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const me = Object.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">'Matthew'</span>; // <span class="string">"name"</span> is a property <span class="built_in">set</span> on <span class="string">"me"</span>, but not on <span class="string">"person"</span></span><br><span class="line">me.isHuman = <span class="literal">true</span>; // inherited properties can be overwritten</span><br><span class="line"></span><br><span class="line">me.printIntroduction();</span><br><span class="line">// expected output: <span class="string">"My name is Matthew. Am I human? true"</span></span><br></pre></td></tr></table></figure>
@@ -377,6 +379,8 @@
         <div class="post-tags">
           
             <a href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag"><i class="fa fa-tag"></i> 对象</a>
+          
+            <a href="/tags/%E6%8B%B7%E8%B4%9D/" rel="tag"><i class="fa fa-tag"></i> 拷贝</a>
           
         </div>
       
@@ -482,7 +486,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -504,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

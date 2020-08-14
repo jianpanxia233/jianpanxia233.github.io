@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="异步," />
+  <meta name="keywords" content="传递," />
 
 
 
@@ -81,16 +81,16 @@
 
 
 
-<meta name="description" content="Es6中promise和async，await的用法async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。">
+<meta name="description" content="JavaScript数据类型JavaScript中，有七种内置类型：6种原始类型和引用类型，它们分别是：6种原始类型（基本类型）：    #空值（null）    #未定义（undefined）    #布尔值（boolean）    #数字（number）    #字符串（string）    #符号（symbol, ES6中新增）引用类型：    #对象（object）可以通过typeof运算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="async和await的理解">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/async%EF%BC%8Cawait/index.html">
+<meta property="og:title" content="JS浅拷贝深拷贝">
+<meta property="og:url" content="http://yoursite.com/2020/08/14/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
-<meta property="og:description" content="Es6中promise和async，await的用法async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。">
-<meta property="article:published_time" content="2020-07-24T11:26:12.000Z">
-<meta property="article:modified_time" content="2020-08-14T06:21:26.047Z">
+<meta property="og:description" content="JavaScript数据类型JavaScript中，有七种内置类型：6种原始类型和引用类型，它们分别是：6种原始类型（基本类型）：    #空值（null）    #未定义（undefined）    #布尔值（boolean）    #数字（number）    #字符串（string）    #符号（symbol, ES6中新增）引用类型：    #对象（object）可以通过typeof运算">
+<meta property="article:published_time" content="2020-08-14T06:09:16.000Z">
+<meta property="article:modified_time" content="2020-08-14T07:40:16.471Z">
 <meta property="article:author" content="Janpanxia">
-<meta property="article:tag" content="异步">
+<meta property="article:tag" content="传递">
 <meta name="twitter:card" content="summary">
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/24/async，await/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/08/14/JS浅拷贝深拷贝/"/>
 
 
 
 
 
-  <title>async和await的理解 | Jianpanxia-Blog</title>
+  <title>JS浅拷贝深拷贝 | Jianpanxia-Blog</title>
   
 
 
@@ -254,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/async%EF%BC%8Cawait/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janpanxia">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">async和await的理解</h1>
+          <h1 class="post-title" itemprop="name headline">JS浅拷贝深拷贝</h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-24T19:26:12+08:00">
-                2020-07-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-14T14:09:16+08:00">
+                2020-08-14
               </time>
             
 
@@ -348,9 +348,23 @@
       
 
       
-        <h3 id="Es6中promise和async，await的用法"><a href="#Es6中promise和async，await的用法" class="headerlink" title="Es6中promise和async，await的用法"></a>Es6中promise和async，await的用法</h3><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>
+        <h2 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h2><p>JavaScript中，有七种内置类型：6种原始类型和引用类型，它们分别是：<br>6种原始类型（基本类型）：<br>    #空值（null）<br>    #未定义（undefined）<br>    #布尔值（boolean）<br>    #数字（number）<br>    #字符串（string）<br>    #符号（symbol, ES6中新增）<br>引用类型：<br>    #对象（object）<br>可以通过typeof运算符来查看类型的值：[]和{}都是引用类型，注意typeof(null) //“object”</p>
 <a id="more"></a>
-<h3 id="宏任务，微任务和事件循环"><a href="#宏任务，微任务和事件循环" class="headerlink" title="宏任务，微任务和事件循环"></a>宏任务，微任务和事件循环</h3><p>宏任务和微任务通过例题来加深理解，微任务如Promise，宏任务包括整体代码script，setTimeout,setInterval。<br> <a href="https://zhuanlan.zhihu.com/p/97138729" target="_blank" rel="noopener">例题</a><br>我对于事件循环的理解：<br>Event Loop是一个程序结构，用于等待和发送消息和事件。当主线程空闲时，让Event Loop线程通知相应的I/O程序，接着运行。<br>1.执行中遇到函数调用会压入执行栈。主线程在遇到Ajax或setTimeout这种异步操作时会交给浏览器的WebAPIs,然后继续执行后边的代码，知道最后执行栈为空。<br>2.浏览器会在不确定的时间将完成的任务返回，排到相应的任务队列后。<br>3.执行栈为空后，主线程会到任务队列中去取任务，这些任务告诉下一步执行哪些回调函数。任务队列具有优先级，按照优先级决定访问的先后顺序。而优先级在不同的环境中会有所不同。<br>4.每访问一个队列，执行栈会执行完这个任务队列的所有的代码，然后再取下一个任务队列需要执行的代码。<br>就这样循环执行，直到全为空，称为事件循环。</p>
+<h2 id="总结JS中的参数传递"><a href="#总结JS中的参数传递" class="headerlink" title="总结JS中的参数传递"></a>总结JS中的参数传递</h2><p>JS中，参数传递只有一种传递规则：按值传递，基于值的复制。原始类型复制的是值本身，所以两份数据互不影响；引用类型复制的是引用值，所以形参和实参指向同一个对象，通过一个引用修改了对象，那么通过另一个引用访问的对象就是修改后的对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj1 = 3;   <span class="built_in">let</span> obj2 = [1,2,3,4,5]</span><br><span class="line"><span class="built_in">let</span> a1 = obj1;  <span class="built_in">let</span> a2 = obj2;</span><br><span class="line"><span class="built_in">let</span> b1 = obj1;  <span class="built_in">let</span> b2 = obj2;</span><br><span class="line">a1 = 4;         <span class="built_in">let</span> a2 = obj2.push(6);</span><br><span class="line">console.log(a1,b1);    console.log(a2,b2); </span><br><span class="line">//expected output: 4 3   </span><br><span class="line">//                 [1,2,3,4,5,6] [1,2,3,4,5,6]</span><br></pre></td></tr></table></figure>
+
+<h2 id="JS对象的浅拷贝、深拷贝和Object-assign方法浅析"><a href="#JS对象的浅拷贝、深拷贝和Object-assign方法浅析" class="headerlink" title="JS对象的浅拷贝、深拷贝和Object.assign方法浅析"></a>JS对象的浅拷贝、深拷贝和Object.assign方法浅析</h2><p>对象的浅拷贝：<br>浅拷贝是对象共用一个内存地址，对象的变化互相影响。比如上述例子。<br>对象的深拷贝：<br>分配新的内存，两个对象改变互不影响。<br>注意：对于Object.assign({},srcObj)，如果对象的属性值为简单类型（string,number）,得到新对象为深拷贝；如果属性值为对象或其他引用类型则为浅拷贝。</p>
+<p>深拷贝的实现：<br>有很多第三方库实现了对象的深拷贝，比如常见的Jquery和underscore。<br>JSON.parse()和JSON.stringif()<br>这是对深拷贝的无脑实现方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">srcObj = &#123;<span class="string">'name'</span>: <span class="string">'明'</span>, grade: &#123;<span class="string">'chi'</span>: <span class="string">'50'</span>, <span class="string">'eng'</span>: <span class="string">'50'</span>&#125;&#125;;</span><br><span class="line">copyObj2 = JSON.parse(JSON.stringif(srcObj));</span><br><span class="line">copyObj2.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj2.grade.chi = <span class="string">'60'</span>;</span><br><span class="line">console.log(<span class="string">'JSON srcObj'</span>, srcObj);</span><br><span class="line">// &#123;<span class="string">'name'</span>: <span class="string">'明'</span>, grade: &#123;<span class="string">'chi'</span>: <span class="string">'50'</span>, <span class="string">'eng'</span>: <span class="string">'50'</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到改变copyObj2并没有改变原始对象，实现了基本的深拷贝。<br>但是用JSON.parse()和JSON.stringif()会有一个问题，其能正确处理的对象只有Number,String,Array等能够被json表示的数据结构，因此函数这种不能被json表示的类型将不能被正确处理。比如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">srcObj = &#123;<span class="string">'name'</span>: <span class="string">'明'</span>, grade: &#123;<span class="string">'chi'</span>: <span class="string">'50'</span>, <span class="string">'eng'</span>: <span class="string">'50'</span>&#125;,</span><br><span class="line">    <span class="string">'hello'</span>: <span class="function"><span class="title">function</span></span>() &#123; console.log(<span class="string">'hello'</span>) &#125;&#125;;</span><br><span class="line">copyObj2 = JSON.parse(JSON.stringif(srcObj));</span><br><span class="line">copyObj2.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj2.grade.chi = <span class="string">'60'</span>;</span><br><span class="line">console.log(<span class="string">'JSON srcObj'</span>, copyObj2);</span><br><span class="line">// &#123;<span class="string">'name'</span>: <span class="string">'红'</span>, grade: &#123;<span class="string">'chi'</span>: <span class="string">'60'</span>, <span class="string">'eng'</span>: <span class="string">'50'</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>数组的深拷贝和浅拷贝：<br>数组的深拷贝可以使用concat,slice,es6的Array.from</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr new Array(6)</span><br><span class="line">arr[0] = <span class="string">"George"</span></span><br><span class="line">arr[1] = <span class="string">"John"</span></span><br><span class="line">arr[2] = <span class="string">"Thomas"</span></span><br><span class="line">arr[3] = <span class="string">"James"</span></span><br><span class="line">arr[4] = <span class="string">"Adrew"</span></span><br><span class="line">arr[5] = <span class="string">"Martin"</span></span><br><span class="line">console.log(arr.slice(2,4))</span><br><span class="line">console.log(arr)</span><br><span class="line">// Thomas, James</span><br><span class="line">// George,John, Thomas, James, Adrew, Martin</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
       
     </div>
@@ -368,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag"><i class="fa fa-tag"></i> 异步</a>
+            <a href="/tags/%E4%BC%A0%E9%80%92/" rel="tag"><i class="fa fa-tag"></i> 传递</a>
           
         </div>
       
@@ -381,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/24/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/08/01/lianpuproject/" rel="next" title="实习项目（来吧，展示）">
+                <i class="fa fa-chevron-left"></i> 实习项目（来吧，展示）
               </a>
             
           </div>
@@ -390,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/30/JS-Object/" rel="prev" title="JS-对象方法总结">
-                JS-对象方法总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Es6中promise和async，await的用法"><span class="nav-number">1.</span> <span class="nav-text">Es6中promise和async，await的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏任务，微任务和事件循环"><span class="nav-number">2.</span> <span class="nav-text">宏任务，微任务和事件循环</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结JS中的参数传递"><span class="nav-number">2.</span> <span class="nav-text">总结JS中的参数传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS对象的浅拷贝、深拷贝和Object-assign方法浅析"><span class="nav-number">3.</span> <span class="nav-text">JS对象的浅拷贝、深拷贝和Object.assign方法浅析</span></a></li></ol></div>
             
 
           </div>
