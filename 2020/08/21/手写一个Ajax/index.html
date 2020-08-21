@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="对象,循环," />
+  <meta name="keywords" content="面试,ajax," />
 
 
 
@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引  filter有返回值，返回一个符合func">
+<meta name="description" content="创建ajax函数：12345678910111213141516171819202122232425262728293031323334353637383940414243function ajax(&amp;#123;url,type,data,dataType&amp;#125;) &amp;#123;    return new Promise(function(resolve,reject)&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中map,filter,some,every,forEach,for in,for of用法总结">
-<meta property="og:url" content="http://yoursite.com/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="手写一个Ajax">
+<meta property="og:url" content="http://yoursite.com/2020/08/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAjax/index.html">
 <meta property="og:site_name" content="Jianpanxia-Blog">
-<meta property="og:description" content="map有返回值，返回一个新的数组，每个元素为调用func的结果 1234567let list &#x3D; [1,2,3,4,5];let other &#x3D; list.map((d,i) &#x3D;&gt; &amp;#123;    return d * 2;&amp;#125;);console.log(other);&#x2F;&#x2F;print: [2,4,6,8,10]&#x2F;&#x2F;d表示值，i为索引  filter有返回值，返回一个符合func">
-<meta property="article:published_time" content="2020-07-30T06:36:24.000Z">
-<meta property="article:modified_time" content="2020-08-21T06:21:15.598Z">
+<meta property="og:description" content="创建ajax函数：12345678910111213141516171819202122232425262728293031323334353637383940414243function ajax(&amp;#123;url,type,data,dataType&amp;#125;) &amp;#123;    return new Promise(function(resolve,reject)&amp;#123;">
+<meta property="article:published_time" content="2020-08-21T06:03:34.000Z">
+<meta property="article:modified_time" content="2020-08-21T06:23:45.315Z">
 <meta property="article:author" content="Janpanxia">
-<meta property="article:tag" content="对象">
-<meta property="article:tag" content="循环">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="ajax">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/30/JS循环总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/08/21/手写一个Ajax/"/>
 
 
 
 
 
-  <title>JS中map,filter,some,every,forEach,for in,for of用法总结 | Jianpanxia-Blog</title>
+  <title>手写一个Ajax | Jianpanxia-Blog</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAjax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Janpanxia">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS中map,filter,some,every,forEach,for in,for of用法总结</h1>
+          <h1 class="post-title" itemprop="name headline">手写一个Ajax</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-30T14:36:24+08:00">
-                2020-07-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-21T14:03:34+08:00">
+                2020-08-21
               </time>
             
 
@@ -349,24 +349,7 @@
       
 
       
-        <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>有返回值，返回一个新的数组，每个元素为调用func的结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = list.map((d,i) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> d * 2;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br><span class="line">//d表示值，i为索引</span><br></pre></td></tr></table></figure>
-
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>有返回值，返回一个符合func条件的元素数组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const words = [<span class="string">'spray'</span>, <span class="string">'limit'</span>, <span class="string">'elite'</span>, <span class="string">'exuberant'</span>, <span class="string">'destruction'</span>, <span class="string">'present'</span>]</span><br><span class="line"></span><br><span class="line">const result = words.filter(word =&gt; word.length &gt; 6);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line">//expected output: Array [<span class="string">"exuberant"</span>, <span class="string">"destruction"</span>, <span class="string">"parent"</span>]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>返回一个Boolean，判断是否有元素符合func条件，如果有一个元素符合func条件，则循环停止。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line">list.some((d, i)=&gt; &#123;</span><br><span class="line">    console.log(d,i);</span><br><span class="line">    <span class="built_in">return</span> d&gt;3;</span><br><span class="line">&#125;);</span><br><span class="line">//<span class="built_in">print</span>: 1,0 2,1 3,2 4,3</span><br><span class="line">//<span class="built_in">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2><p>返回一个boolean,判断每个元素是否符合func条件，有一个元素不满足func条件，则循环终止。返回false。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line">list.every((d, i)=&gt; &#123;</span><br><span class="line">    console.log(d,i);</span><br><span class="line">    <span class="built_in">return</span> d&lt;3;</span><br><span class="line">&#125;);</span><br><span class="line">//<span class="built_in">print</span>: 1,0 2,1 3,2</span><br><span class="line">//<span class="built_in">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>没有返回值，只针对每个元素调用func。<br>优点：代码简洁。<br>缺点：无法使用break,return等终止循环。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = [];</span><br><span class="line">list.forEach((d, i)=&gt; &#123;</span><br><span class="line">    other.push(d*2);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for-in循环实际是为循环”enumerable”对象设计的，for in也可以循环数组，但是不推荐这样使用，for-in是用来循环带有字符串key的对象的方法。<br>缺点：只能获得对象的键名，不能直接获取键值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> obj = &#123;a:1,b:2,c:3&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    console.log(<span class="string">"obj."</span> + prop + <span class="string">" = "</span> + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line">// <span class="built_in">print</span>: <span class="string">"obj.a = 1"</span> <span class="string">"obj.b = 2"</span> <span class="string">"obj.c = 3"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h2><p>for of为ES6提供，具有iterator接口，在可迭代对象(Array,Map,Set,String,Dom集合)上创建一个迭代循环。</p>
-
+        <h2 id="创建ajax函数："><a href="#创建ajax函数：" class="headerlink" title="创建ajax函数："></a>创建ajax函数：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> ajax(&#123;url,<span class="built_in">type</span>,data,dataType&#125;) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">        //1. 创建异步请求对象</span><br><span class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">        //2.绑&amp;定监听事件</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState==4&amp;&amp;xhr.status==200) &#123;</span><br><span class="line">                //当返回接收的字符串类型为json串时，自动转换json串</span><br><span class="line">                <span class="keyword">if</span>(dataType!==undefined</span><br><span class="line">                    &amp;&amp;dataType.toLowerCase()===<span class="string">"json"</span>)</span><br><span class="line">				var res=JSON.parse(xhr.responseText)</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">				// 否则直接获取返回的响应文本中的内容</span><br><span class="line">				var res=xhr.responseText</span><br><span class="line">                // 通过Promise，将返回的数据向后传递,相当于获取到请求数据将数据<span class="built_in">return</span>出来</span><br><span class="line">                resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果请求方式为get请求，则将请求参数拼接在url后</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"get"</span>&amp;&amp;data!==undefined)&#123;</span><br><span class="line">		url+=<span class="string">"?"</span>+data;</span><br><span class="line">	    &#125;</span><br><span class="line">        //3.打开链接</span><br><span class="line">        xhr.open(<span class="built_in">type</span>,url,<span class="literal">true</span>);</span><br><span class="line">        //如果请求方式为post请求，则修改请求消息头</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>)</span><br><span class="line">            //增加：设置请求消息头</span><br><span class="line">            xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">            //4.发送请求</span><br><span class="line">            <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>&amp;&amp;data!==undefined)</span><br><span class="line">                xhr.send(data);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xhr.send(null);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">##调用</span></span><br><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">"url路径..."</span>,</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">"get"</span>,</span><br><span class="line">        dataType: <span class="string">"json"</span>,</span><br><span class="line">    &#125;).<span class="keyword">then</span>(<span class="keyword">function</span>(res) &#123;...&#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -383,9 +366,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag"><i class="fa fa-tag"></i> 对象</a>
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
           
-            <a href="/tags/%E5%BE%AA%E7%8E%AF/" rel="tag"><i class="fa fa-tag"></i> 循环</a>
+            <a href="/tags/ajax/" rel="tag"><i class="fa fa-tag"></i> ajax</a>
           
         </div>
       
@@ -398,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/30/JS-Object/" rel="next" title="JS-对象方法总结">
-                <i class="fa fa-chevron-left"></i> JS-对象方法总结
+              <a href="/2020/08/14/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="next" title="JS浅拷贝深拷贝">
+                <i class="fa fa-chevron-left"></i> JS浅拷贝深拷贝
               </a>
             
           </div>
@@ -407,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/01/lianpuproject/" rel="prev" title="实习项目（来吧，展示）">
-                实习项目（来吧，展示） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter"><span class="nav-number">2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some"><span class="nav-number">3.</span> <span class="nav-text">some</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#every"><span class="nav-number">4.</span> <span class="nav-text">every</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">5.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in"><span class="nav-number">6.</span> <span class="nav-text">for in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of"><span class="nav-number">7.</span> <span class="nav-text">for of</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建ajax函数："><span class="nav-number">1.</span> <span class="nav-text">创建ajax函数：</span></a></li></ol></div>
             
 
           </div>

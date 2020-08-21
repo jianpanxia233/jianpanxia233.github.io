@@ -250,6 +250,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAjax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Janpanxia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jianpanxia-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAjax/" itemprop="url">手写一个Ajax</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-21T14:03:34+08:00">
+                2020-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建ajax函数："><a href="#创建ajax函数：" class="headerlink" title="创建ajax函数："></a>创建ajax函数：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> ajax(&#123;url,<span class="built_in">type</span>,data,dataType&#125;) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">        //1. 创建异步请求对象</span><br><span class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">        //2.绑&amp;定监听事件</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState==4&amp;&amp;xhr.status==200) &#123;</span><br><span class="line">                //当返回接收的字符串类型为json串时，自动转换json串</span><br><span class="line">                <span class="keyword">if</span>(dataType!==undefined</span><br><span class="line">                    &amp;&amp;dataType.toLowerCase()===<span class="string">"json"</span>)</span><br><span class="line">				var res=JSON.parse(xhr.responseText)</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">				// 否则直接获取返回的响应文本中的内容</span><br><span class="line">				var res=xhr.responseText</span><br><span class="line">                // 通过Promise，将返回的数据向后传递,相当于获取到请求数据将数据<span class="built_in">return</span>出来</span><br><span class="line">                resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果请求方式为get请求，则将请求参数拼接在url后</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"get"</span>&amp;&amp;data!==undefined)&#123;</span><br><span class="line">		url+=<span class="string">"?"</span>+data;</span><br><span class="line">	    &#125;</span><br><span class="line">        //3.打开链接</span><br><span class="line">        xhr.open(<span class="built_in">type</span>,url,<span class="literal">true</span>);</span><br><span class="line">        //如果请求方式为post请求，则修改请求消息头</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>)</span><br><span class="line">            //增加：设置请求消息头</span><br><span class="line">            xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">            //4.发送请求</span><br><span class="line">            <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>&amp;&amp;data!==undefined)</span><br><span class="line">                xhr.send(data);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xhr.send(null);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">##调用</span></span><br><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">"url路径..."</span>,</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">"get"</span>,</span><br><span class="line">        dataType: <span class="string">"json"</span>,</span><br><span class="line">    &#125;).<span class="keyword">then</span>(<span class="keyword">function</span>(res) &#123;...&#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,6 +608,7 @@
       
         
           <h2 id="主页显示"><a href="#主页显示" class="headerlink" title="主页显示"></a>主页显示</h2><p>搜索功能：包括tab的切换、搜索项的关键字匹配<br><img src="/2020/08/01/lianpuproject/homepage.png" alt="homepage"></p>
+<h2 id="后台管理面板"><a href="#后台管理面板" class="headerlink" title="后台管理面板"></a>后台管理面板</h2><p>展示总体数据概览<br><img src="/2020/08/01/lianpuproject/dashbord.png" alt="dashbord"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/08/01/lianpuproject/#more" rel="contents">
@@ -614,6 +756,9 @@
         
           <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>有返回值，返回一个新的数组，每个元素为调用func的结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list = [1,2,3,4,5];</span><br><span class="line"><span class="built_in">let</span> other = list.map((d,i) =&gt; &#123;</span><br><span class="line">    <span class="built_in">return</span> d * 2;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(other);</span><br><span class="line">//<span class="built_in">print</span>: [2,4,6,8,10]</span><br><span class="line">//d表示值，i为索引</span><br></pre></td></tr></table></figure>
+
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>有返回值，返回一个符合func条件的元素数组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const words = [<span class="string">'spray'</span>, <span class="string">'limit'</span>, <span class="string">'elite'</span>, <span class="string">'exuberant'</span>, <span class="string">'destruction'</span>, <span class="string">'present'</span>]</span><br><span class="line"></span><br><span class="line">const result = words.filter(word =&gt; word.length &gt; 6);</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br><span class="line">//expected output: Array [<span class="string">"exuberant"</span>, <span class="string">"destruction"</span>, <span class="string">"parent"</span>]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/30/JS%E5%BE%AA%E7%8E%AF%E6%80%BB%E7%BB%93/#more" rel="contents">
@@ -760,6 +905,7 @@
       
         
           <h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><h3 id="Object-assign-target-source1-source2-…"><a href="#Object-assign-target-source1-source2-…" class="headerlink" title="Object.assign(target,source1,source2,…)"></a>Object.assign(target,source1,source2,…)</h3><p>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上，此方法只拷贝源对象的自身属性，不拷贝继承的属性。<br>Objects.assign方法实行的是浅拷贝，而不是深拷贝。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const target = &#123;</span><br><span class="line">    x: 0,</span><br><span class="line">    y: 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const <span class="built_in">source</span> = &#123;</span><br><span class="line">    x: 1,</span><br><span class="line">    z: 2,</span><br><span class="line">    fn: &#123;</span><br><span class="line">        number : 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Object.assign(target,<span class="built_in">source</span>);</span><br><span class="line">// target &#123;x: 1, y: 1, z: 2, fn : &#123;number : 1&#125;&#125;  //同名属性会被覆盖</span><br><span class="line">// <span class="built_in">source</span> &#123;x :1, z: 2, fn : &#123;number : 1&#125;&#125;</span><br><span class="line">target.fn.number = 2; //拷贝为对象引用</span><br><span class="line">// <span class="built_in">source</span> &#123;x: 1,z: 2,fn : &#123;number :2&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;</span><br><span class="line">    this.name = 1</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.country = <span class="string">'china'</span>;</span><br><span class="line"><span class="built_in">let</span> student = new Person();</span><br><span class="line">student.age = 29;</span><br><span class="line">const young = &#123;intrest : <span class="string">'sport'</span>&#125;;</span><br><span class="line">Object.assign(young,student);</span><br><span class="line">//young &#123;intrest : <span class="string">'sport'</span> , name: 1, age: 29&#125;</span><br><span class="line">//只能拷贝自身的属性，不能拷贝prototype</span><br><span class="line"></span><br><span class="line">Object.assign([1,2,3],[4,5]) //把数组当作对象来处理</span><br><span class="line">// [4, 5, 3]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/30/JS-Object/#more" rel="contents">
@@ -905,14 +1051,11 @@
 
       
         
-          <h3 id="Es6中promise和async，await的用法"><a href="#Es6中promise和async，await的用法" class="headerlink" title="Es6中promise和async，await的用法"></a>Es6中promise和async，await的用法</h3><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/07/24/async%EF%BC%8Cawait/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="Es6中promise和async，await的用法"><a href="#Es6中promise和async，await的用法" class="headerlink" title="Es6中promise和async，await的用法"></a>Es6中promise和async，await的用法</h3><p>async返回一个promise对象，await只能在async中使用，当await等到的是一个promise对象时，它会阻塞后面的代码，等着Promise对象resolve，然后得到resolve的值，作为await表达式的运算结果。阻塞只在async函数中，被封装到Promise对象中异步执行。</p>
+<h3 id="宏任务，微任务和事件循环"><a href="#宏任务，微任务和事件循环" class="headerlink" title="宏任务，微任务和事件循环"></a>宏任务，微任务和事件循环</h3><p>宏任务和微任务通过例题来加深理解，微任务如Promise，宏任务包括整体代码script，setTimeout,setInterval。<br> <a href="https://zhuanlan.zhihu.com/p/97138729" target="_blank" rel="noopener">例题</a><br>我对于事件循环的理解：<br>Event Loop是一个程序结构，用于等待和发送消息和事件。当主线程空闲时，让Event Loop线程通知相应的I/O程序，接着运行。<br>1.执行中遇到函数调用会压入执行栈。主线程在遇到Ajax或setTimeout这种异步操作时会交给浏览器的WebAPIs,然后继续执行后边的代码，知道最后执行栈为空。<br>2.浏览器会在不确定的时间将完成的任务返回，排到相应的任务队列后。<br>3.执行栈为空后，主线程会到任务队列中去取任务，这些任务告诉下一步执行哪些回调函数。任务队列具有优先级，按照优先级决定访问的先后顺序。而优先级在不同的环境中会有所不同。<br>4.每访问一个队列，执行栈会执行完这个任务队列的所有的代码，然后再取下一个任务队列需要执行的代码。<br>就这样循环执行，直到全为空，称为事件循环。</p>
+
+          
         
       
     </div>
@@ -1128,7 +1271,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1150,7 +1293,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
