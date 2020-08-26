@@ -250,6 +250,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/26/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Janpanxia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jianpanxia-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/26/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url">箭头函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-26T15:20:01+08:00">
+                2020-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="写法更简洁"><a href="#写法更简洁" class="headerlink" title="写法更简洁"></a>写法更简洁</h2><h2 id="没有局部this的绑定"><a href="#没有局部this的绑定" class="headerlink" title="没有局部this的绑定"></a>没有局部this的绑定</h2><p>1.没有被函数包裹，那么它里面的this指向全局,windows上面的对象。<br>let a = “I am windows”;<br>let obj = {<br>    a: ‘I am objs’,<br>    fun: () =&gt; {<br>        console.log(this.a);<br>    }<br>}<br>obj.fun();  //输出I am windows<br>2.被函数包裹就是与同级定义<br>let a = “I am windows”;<br>let obj = {<br>    a: ‘I am objs’,<br>    fun(){<br>        (() =&gt; {<br>        console.log(this.a);<br>        })()   //立即执行函数<br>    }<br>}<br>obj.fun();  //输出I am objs</p>
+<h2 id="箭头函数体内的this对象，就是定义该函数时所在作用域指向的对象，而不是使用时所在作用域指向的对象。"><a href="#箭头函数体内的this对象，就是定义该函数时所在作用域指向的对象，而不是使用时所在作用域指向的对象。" class="headerlink" title="箭头函数体内的this对象，就是定义该函数时所在作用域指向的对象，而不是使用时所在作用域指向的对象。"></a>箭头函数体内的this对象，就是定义该函数时所在作用域指向的对象，而不是使用时所在作用域指向的对象。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">永远绑定A</span><br><span class="line"><span class="built_in">let</span> name = <span class="string">'window'</span>;</span><br><span class="line"><span class="built_in">let</span> A = &#123;</span><br><span class="line">    name : <span class="string">'A'</span>,</span><br><span class="line">    sayHello: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">let</span> s = () =&gt; console.log(this.name)</span><br><span class="line">        <span class="built_in">return</span> s //返回箭头函数s</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> sayHello = A.sayHello();</span><br><span class="line">sayHello(); // 输出A;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> B = &#123;</span><br><span class="line">    name : <span class="string">'B'</span>;</span><br><span class="line">&#125;</span><br><span class="line">sayHello.call(B);   //还是A</span><br><span class="line">sayHello.call();    //还是A</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/21/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAjax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -344,6 +486,8 @@
         
           
             <h2 id="创建ajax函数："><a href="#创建ajax函数：" class="headerlink" title="创建ajax函数："></a>创建ajax函数：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> ajax(&#123;url,<span class="built_in">type</span>,data,dataType&#125;) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">        //1. 创建异步请求对象</span><br><span class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">        //2.绑&amp;定监听事件</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState==4&amp;&amp;xhr.status==200) &#123;</span><br><span class="line">                //当返回接收的字符串类型为json串时，自动转换json串</span><br><span class="line">                <span class="keyword">if</span>(dataType!==undefined</span><br><span class="line">                    &amp;&amp;dataType.toLowerCase()===<span class="string">"json"</span>)</span><br><span class="line">				var res=JSON.parse(xhr.responseText)</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">				// 否则直接获取返回的响应文本中的内容</span><br><span class="line">				var res=xhr.responseText</span><br><span class="line">                // 通过Promise，将返回的数据向后传递,相当于获取到请求数据将数据<span class="built_in">return</span>出来</span><br><span class="line">                resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果请求方式为get请求，则将请求参数拼接在url后</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"get"</span>&amp;&amp;data!==undefined)&#123;</span><br><span class="line">		url+=<span class="string">"?"</span>+data;</span><br><span class="line">	    &#125;</span><br><span class="line">        //3.打开链接</span><br><span class="line">        xhr.open(<span class="built_in">type</span>,url,<span class="literal">true</span>);</span><br><span class="line">        //如果请求方式为post请求，则修改请求消息头</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>)</span><br><span class="line">            //增加：设置请求消息头</span><br><span class="line">            xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">            //4.发送请求</span><br><span class="line">            <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>&amp;&amp;data!==undefined)</span><br><span class="line">                xhr.send(data);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xhr.send(null);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">##调用</span></span><br><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">"url路径..."</span>,</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">"get"</span>,</span><br><span class="line">        dataType: <span class="string">"json"</span>,</span><br><span class="line">    &#125;).<span class="keyword">then</span>(<span class="keyword">function</span>(res) &#123;...&#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+
           
         
       
@@ -1271,7 +1415,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1282,7 +1426,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

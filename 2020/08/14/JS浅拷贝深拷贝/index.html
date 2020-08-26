@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Jianpanxia-Blog">
 <meta property="og:description" content="JavaScript数据类型JavaScript中，有七种内置类型：6种原始类型和引用类型，它们分别是：6种原始类型（基本类型）：    #空值（null）    #未定义（undefined）    #布尔值（boolean）    #数字（number）    #字符串（string）    #符号（symbol, ES6中新增）引用类型：    #对象（object）可以通过typeof运算">
 <meta property="article:published_time" content="2020-08-14T06:09:16.000Z">
-<meta property="article:modified_time" content="2020-08-14T07:40:16.471Z">
+<meta property="article:modified_time" content="2020-08-26T07:00:02.014Z">
 <meta property="article:author" content="Janpanxia">
 <meta property="article:tag" content="传递">
 <meta name="twitter:card" content="summary">
@@ -361,6 +361,9 @@
 <p>数组的深拷贝和浅拷贝：<br>数组的深拷贝可以使用concat,slice,es6的Array.from</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr new Array(6)</span><br><span class="line">arr[0] = <span class="string">"George"</span></span><br><span class="line">arr[1] = <span class="string">"John"</span></span><br><span class="line">arr[2] = <span class="string">"Thomas"</span></span><br><span class="line">arr[3] = <span class="string">"James"</span></span><br><span class="line">arr[4] = <span class="string">"Adrew"</span></span><br><span class="line">arr[5] = <span class="string">"Martin"</span></span><br><span class="line">console.log(arr.slice(2,4))</span><br><span class="line">console.log(arr)</span><br><span class="line">// Thomas, James</span><br><span class="line">// George,John, Thomas, James, Adrew, Martin</span><br></pre></td></tr></table></figure>
 
+<p>通用js对象的深拷贝（递归）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">clone</span>(Obj) &#123;</span><br><span class="line">    <span class="built_in">let</span> buf;</span><br><span class="line">    <span class="keyword">if</span> (Obj instanceof Array) &#123;</span><br><span class="line">        buf = [];    //创建一个空的数组</span><br><span class="line">        <span class="built_in">let</span> i = Obj.length;</span><br><span class="line">        <span class="keyword">while</span>(i--) &#123;</span><br><span class="line">            buf[i] = <span class="built_in">clone</span>(Obj[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> buf;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Obj instanceof Object) &#123;</span><br><span class="line">        buf = &#123;&#125;;    //创建一个空对象</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">let</span> k <span class="keyword">in</span> Obj) &#123;</span><br><span class="line">            buf[k] = <span class="built_in">clone</span>(Obj[k]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> buf;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">return</span> Obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 
 
@@ -488,7 +491,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -499,7 +502,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

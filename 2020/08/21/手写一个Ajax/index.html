@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Jianpanxia-Blog">
 <meta property="og:description" content="创建ajax函数：12345678910111213141516171819202122232425262728293031323334353637383940414243function ajax(&amp;#123;url,type,data,dataType&amp;#125;) &amp;#123;    return new Promise(function(resolve,reject)&amp;#123;">
 <meta property="article:published_time" content="2020-08-21T06:03:34.000Z">
-<meta property="article:modified_time" content="2020-08-21T06:23:45.315Z">
+<meta property="article:modified_time" content="2020-08-21T08:21:34.306Z">
 <meta property="article:author" content="Janpanxia">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="ajax">
@@ -350,6 +350,8 @@
 
       
         <h2 id="创建ajax函数："><a href="#创建ajax函数：" class="headerlink" title="创建ajax函数："></a>创建ajax函数：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> ajax(&#123;url,<span class="built_in">type</span>,data,dataType&#125;) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">        //1. 创建异步请求对象</span><br><span class="line">        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveObject(<span class="string">'Microsoft.XMLHttp'</span>);</span><br><span class="line">        //2.绑&amp;定监听事件</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState==4&amp;&amp;xhr.status==200) &#123;</span><br><span class="line">                //当返回接收的字符串类型为json串时，自动转换json串</span><br><span class="line">                <span class="keyword">if</span>(dataType!==undefined</span><br><span class="line">                    &amp;&amp;dataType.toLowerCase()===<span class="string">"json"</span>)</span><br><span class="line">				var res=JSON.parse(xhr.responseText)</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">				// 否则直接获取返回的响应文本中的内容</span><br><span class="line">				var res=xhr.responseText</span><br><span class="line">                // 通过Promise，将返回的数据向后传递,相当于获取到请求数据将数据<span class="built_in">return</span>出来</span><br><span class="line">                resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //如果请求方式为get请求，则将请求参数拼接在url后</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"get"</span>&amp;&amp;data!==undefined)&#123;</span><br><span class="line">		url+=<span class="string">"?"</span>+data;</span><br><span class="line">	    &#125;</span><br><span class="line">        //3.打开链接</span><br><span class="line">        xhr.open(<span class="built_in">type</span>,url,<span class="literal">true</span>);</span><br><span class="line">        //如果请求方式为post请求，则修改请求消息头</span><br><span class="line">        <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>)</span><br><span class="line">            //增加：设置请求消息头</span><br><span class="line">            xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">            //4.发送请求</span><br><span class="line">            <span class="keyword">if</span>(type.toLowerCase()===<span class="string">"post"</span>&amp;&amp;data!==undefined)</span><br><span class="line">                xhr.send(data);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xhr.send(null);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">##调用</span></span><br><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    ajax(&#123;</span><br><span class="line">        url: <span class="string">"url路径..."</span>,</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">"get"</span>,</span><br><span class="line">        dataType: <span class="string">"json"</span>,</span><br><span class="line">    &#125;).<span class="keyword">then</span>(<span class="keyword">function</span>(res) &#123;...&#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -390,6 +392,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/26/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" rel="prev" title="箭头函数">
+                箭头函数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -470,7 +476,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -481,7 +487,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
